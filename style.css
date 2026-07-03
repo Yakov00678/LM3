@@ -1,0 +1,138 @@
+/* Обнуляем стандартные отступы браузера */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body, html {
+    height: 100%;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    overflow: hidden;
+    background-color: #0b0b0b;
+}
+
+/* Контейнер для двух половин */
+.split-container {
+    display: flex;
+    height: 100%;
+    width: 100%;
+}
+
+/* Общие стили для каждой огромной кнопки-половины */
+.split {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    cursor: pointer;
+    transition: all 0.6s cubic-bezier(0.25, 1, 0.5, 1);
+    text-decoration: none;
+    overflow: hidden;
+}
+
+/* Стили для левой стороны (РЭП) */
+.rap-side {
+    background: linear-gradient(135deg, #1f1c2c, #0b0b0b);
+    border-right: 2px solid rgba(255, 255, 255, 0.05);
+}
+
+/* Стили для правой стороны (РОК) */
+.rock-side {
+    background: linear-gradient(135deg, #0b0b0b, #2c0b0b);
+}
+
+/* Эффект расширения стороны при наведении */
+.split:hover {
+    flex: 1.3;
+}
+
+/* Цветовой акцент при наведении на РЭП */
+.rap-side:hover {
+    background: linear-gradient(135deg, #4a154b, #110312);
+    box-shadow: inset -50px 0 100px rgba(156, 39, 176, 0.2);
+}
+
+/* Цветовой акцент при наведении на РОК */
+.rock-side:hover {
+    background: linear-gradient(135deg, #1a0202, #800000);
+    box-shadow: inset 50px 0 100px rgba(244, 67, 54, 0.2);
+}
+
+/* Контент внутри кнопок */
+.content {
+    z-index: 2;
+    text-align: center;
+    color: #ffffff;
+    pointer-events: none; /* Клик проходит сквозь текст на саму ссылку */
+}
+
+/* Стили огромного текста */
+.title {
+    font-size: 5rem;
+    font-weight: 900;
+    text-transform: uppercase;
+    letter-spacing: 4px;
+    margin-bottom: 10px;
+    transition: transform 0.4s ease;
+    text-shadow: 0 4px 20px rgba(0, 0, 0, 0.6);
+}
+
+/* Подзаголовок-подсказка */
+.subtitle {
+    font-size: 1.2rem;
+    font-weight: 300;
+    letter-spacing: 2px;
+    opacity: 0.6;
+    text-transform: uppercase;
+    transition: opacity 0.4s ease;
+}
+
+/* Анимация текста при наведении */
+.split:hover .title {
+    transform: scale(1.15);
+}
+
+.split:hover .subtitle {
+    opacity: 1;
+}
+
+/* Огромная размытая буква на заднем фоне */
+.bg-letter {
+    position: absolute;
+    font-size: 25rem;
+    font-weight: 900;
+    opacity: 0.03;
+    color: #ffffff;
+    z-index: 1;
+    user-select: none;
+    transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.rap-side .bg-letter { left: 10%; bottom: -10%; }
+.rock-side .bg-letter { right: 10%; top: -10%; }
+
+.split:hover .bg-letter {
+    opacity: 0.08;
+    transform: scale(1.1);
+}
+
+/* Адаптивность для мобильных телефонов */
+@media (max-width: 768px) {
+    .split-container {
+        flex-direction: column;
+    }
+    .split {
+        border-right: none;
+    }
+    .rap-side {
+        border-bottom: 2px solid rgba(255, 255, 255, 0.05);
+    }
+    .title {
+        font-size: 3.5rem;
+    }
+    .bg-letter {
+        font-size: 15rem;
+    }
+}

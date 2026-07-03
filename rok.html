@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Рок Плеер — Мария и Снежинка</title>
+    <style>
+        body {
+            background-color: #120202;
+            color: #ffffff;
+            font-family: 'Segoe UI', sans-serif;
+            margin: 0;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .player-card {
+            background: #1a0505;
+            padding: 40px;
+            border-radius: 20px;
+            border: 1px solid #4a1010;
+            text-align: center;
+            box-shadow: 0 20px 50px rgba(255, 51, 51, 0.15);
+            max-width: 400px;
+            width: 100%;
+        }
+        .back-btn {
+            display: inline-block;
+            color: #ff4c4c;
+            text-decoration: none;
+            margin-bottom: 30px;
+            font-weight: bold;
+            text-transform: uppercase;
+            font-size: 0.85rem;
+            letter-spacing: 1px;
+            transition: color 0.3s;
+        }
+        .back-btn:hover { color: #ffffff; }
+        h1 {
+            font-size: 1.8rem;
+            color: #ff3333;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 10px;
+        }
+        p {
+            color: #888;
+            margin-bottom: 30px;
+            font-size: 1rem;
+        }
+        audio {
+            width: 100%;
+            border-radius: 30px;
+            outline: none;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="player-card">
+        <a href="index.html" class="back-btn">← Назад к выбору</a>
+        <h1>Рок Версия</h1>
+        <p>Мария и Снежинка</p>
+        
+        <!-- Тег аудио указывает на ваш файл в папке pages -->
+        <audio controls src="pages/rok2.mp3"></audio>
+    </div>
+
+</body>
+</html>
